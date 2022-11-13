@@ -3,6 +3,15 @@
 
 ### Team Name: Meta-4
 
+### Topic
+- ### Graph: Web-Graphs
+  - Reachability (modified BFS to record paths)
+  - Exploring Topological Ordering
+  - Navigation (Bi-Connected Components and Strongly Connected Components using Kosaraja's Algorithm)
+- ### Sorting: Bubble Sort
+  - Implementation of bubble sort algorithm
+  - Performance Analysis 
+
 #### Members:
 1. Jietthesh Balaji M - CB.EN.U4CSE20322
 2. Mruthun M - CB.EN.U4CSE20338
