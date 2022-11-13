@@ -6,7 +6,7 @@
 - ### Graph: Web-Graphs
   - Reachability (modified BFS to record paths)
   - Exploring Topological Ordering
-  - Navigation (Bi-Connected Components and Strongly Connected Components using Kosaraja's Algorithm)
+  - Navigation (Bi-Connected Components and Strongly Connected Components using Kosaraju's Algorithm)
 - ### Sorting: Bubble Sort
   - Implementation of bubble sort algorithm
   - Performance Analysis 
