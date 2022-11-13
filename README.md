@@ -3,7 +3,6 @@
 
 ### Team Name: Meta-4
 
-### Topic
 - ### Graph: Web-Graphs
   - Reachability (modified BFS to record paths)
   - Exploring Topological Ordering
