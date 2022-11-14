@@ -1,7 +1,7 @@
 # 19CSE302 - Design & Analysis of Algorithms
 ## Lab Evaluation 1
 ## Project Topic: Web Graphs and Sorting
-### Project Description: The webgraph showcases the directed links between pages of the World Wide Web. We list out different links between the various pages on the internet.
+Description: The webgraph showcases the directed links between pages of the World Wide Web. We list out different links between the various pages on the internet.
 ### Team Name: Meta-4
 
 - ### Graph: Web-Graphs
