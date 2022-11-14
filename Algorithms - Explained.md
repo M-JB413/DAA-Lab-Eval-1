@@ -3,7 +3,7 @@
     Algorithms Implemented:  
         * Reachability (modified BFS to record paths)
         * Exploring Topological Ordering
-        * Navigation (Bi-Connected Components and Strongly Connected Components using Kosaraju's Algorithm)
+        * Navigation (Bi-Connected Components and Strongly Connected Components using               Kosaraju's Algorithm)
 ### Sorting: Bubble Sort
     * Implementation of bubble sort algorithm
     * Performance Analysis
@@ -80,6 +80,47 @@ data set. Topological Order exists only for a DAG(Directed Acyclic Graph)
      
 **Time Complexity** - O(V + E) -> Since multiple DFS calls are only made
 **Space Complexity** - O(V)
+
+### 4. Bi-Connected components
+
+**Definition:** 
+    -> A Bi-Connected graph is a graph which doesn't have any articulation points in it and that from every node you are able to visit every other node in the case of an undirected graph. 
+    -> Articulation Point - It is the pivot point which when removed, the graph is no longer a bi-connected graph and the graph gets split into multiple components.
+
+    Data Structures required:
+        * Stack
+        * 2 Arrays - Discovered[] and low[]
+        -> Discovered[] - Stores the discovered time from source.
+            -> Discovered Time - The number of hops taken to reach a node 'v' from 'u'
+        -> low[] - Stores the lowest possible discovered time.
+   
+###### Algorithm:
+    * Take a source node and make a DFS call, assign both the low[] value and discovered[] time equal to time, as discovered[] will not change but low[] value might change when we backtrack from a node in DFS call. In graph there are multiple paths to visit the same node and it might affect the discovery time of the node, so to make sure that we always keep the lowest low[] time for each node we update the low[] value while returning from DFS call.
+    * When we visit a neighbor in the DFS call one of the three conditions will be true,
+        * If the neighbor is the parent node, then
+            * Continue to next neighbor, because we don't want to visit the node again which is already visited and the parent is already visited.
+        * If the neighbor is not a parent but already visited
+            * Reassign the low value of the current node with the minimum of low[] value of the current node and discovered[] value of neighbor.
+            low[current_node] = minimim_of(low[current_node], discovered[neighbour])
+            The reason why we did this is that there might be a possibility to get a less low[i] time for a current node i and low[i] is the lowest possible discovery time of node i.
+        * Neighbour is not visited, of course, not a parent as well
+            * Make DFS call to the neighbor
+            DFS(neighbour)
+        * While returning from DFS call, update low[] value
+            low[current_node] = minimim_of(low[current_node], low[neighbour]), 
+            same as we discussed in the first step.
+**Detecting Articulation Point**
+        * If the current node is the parent node, (par[current_node] = -1), then count the number of DFS calls made from the parent. If the count is greater than 1, then the current node is an Articulation point.
+        Because if it's a parent node and count of DFS calls is greater than 1, then more than 1 DFS call is being made from the source node, which is only possible when source node is the only junction between two components of a graph.
+        * If the current node is not the parent node, 
+            * then check if (low[neighbout] >= disc[current_node]) if this is true then, current node is an Articulation point.
+
+###### Result:
+    A list is returned with every node in each Bi-Connected components and each tuple is written into a CSV file and at the end, the number of Bi-Connected components for the given Web Graph. 
+     
+**Time Complexity** - O(V + E) -> Since only one DFS call is made
+**Space Complexity** - O(V)
+
 ## Sorting
 ### 1. Bubble Sort
 
